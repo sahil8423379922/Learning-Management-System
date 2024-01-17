@@ -1,0 +1,22 @@
+.logb{
+ margin-right: 20%;
+ margin-left: 20%;
+ padding-top: 5%;
+ margin-bottom:5px
+}
+
+.imgholder{
+  height: 350px;
+  width: 350px;
+}
+
+.bgmain{
+  height: 300px;
+  width: 100%;
+  background-color: aqua;
+}
+
+.logtext{
+  font-size: 25px;
+}
+
