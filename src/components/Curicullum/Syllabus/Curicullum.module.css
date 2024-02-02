@@ -1,0 +1,27 @@
+.cardtemplate{
+  width: 180px;
+  height: 200px;
+}
+
+.cardfont{
+  font-size:18px;
+  font-weight:600;
+}
+
+.cardpara{
+  font-size: 12;
+}
+
+.scrollcontainer {
+  width: 100%; /* Adjust the width as needed */
+  overflow-x: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.hscrollcontainer {
+  overflow-x: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+

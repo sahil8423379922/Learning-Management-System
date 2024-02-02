@@ -3,7 +3,7 @@ import logo from "./teacherpic.jpg";
 import CountdownTimer from "./Countdown";
 export default function UpcomingEvents() {
   return (
-    <div className="row bg-light mx-5 shadow-sm p-3 mb-5 bg-body-tertiary rounded ">
+    <div className="row bg-light mx-3 shadow-sm p-3 mb-5 bg-body-tertiary rounded  mt-3">
       <div className="col-2 ">
         <img src={logo} class="img-fluid" alt="..." />
       </div>

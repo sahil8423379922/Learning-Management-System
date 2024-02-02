@@ -5,7 +5,7 @@ export default function Navbar() {
   return (
     <>
       <div className="">
-        <nav class="navbar bg-body-tertiary  mb-4">
+        <nav class="navbar bg-body-tertiary">
           <div class="container-fluid">
             <a class="navbar-brand" href="#">
               <img
