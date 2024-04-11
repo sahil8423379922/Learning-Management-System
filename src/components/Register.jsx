@@ -6,6 +6,7 @@ import Login from "./login";
 import { auth } from "../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import ReactDOM from "react-dom";
+import { Link } from "react-router-dom";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -85,9 +86,9 @@ export default function Register() {
                   </button>
                 </div>
                 <div className="pt-1 form-text">
-                  <a href="/">
+                  <Link to="/">
                     <p>Already have Account? Login</p>
-                  </a>
+                  </Link>
                 </div>
               </form>
             </div>

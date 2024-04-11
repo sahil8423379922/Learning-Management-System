@@ -2,12 +2,14 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 export default function TopicWise() {
-  const { title } = useParams();
+  const { data } = useParams();
+  const deserializedData = JSON.parse(decodeURIComponent(data));
+  console.log(deserializedData);
 
   return (
     <>
       <div className="text-left container mt-4 fs-2">
-        {title + " Detailed Curriculum"}
+        {deserializedData.name + " Detailed Curriculum"}
       </div>
 
       <div className="container mt-4 ">
@@ -19,14 +21,16 @@ export default function TopicWise() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th className="col-2">1</th>
-              <td className="col-10">Mark</td>
-            </tr>
-            <tr>
-              <th>2</th>
-              <td>Jacob</td>
-            </tr>
+            {deserializedData.topics.map((value, index) => {
+              return (
+                <>
+                  <tr>
+                    <th className="col-2">{index + 1}</th>
+                    <td className="col-10">{value}</td>
+                  </tr>
+                </>
+              );
+            })}
           </tbody>
         </table>
       </div>

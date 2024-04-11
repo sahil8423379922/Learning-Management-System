@@ -36,7 +36,7 @@ export default function DashboardContent() {
               </a>
             </p>
 
-            <div class="collapse" id="collapseExample">
+            <div class="collapse show" id="collapseExample">
               <div className="row">
                 <CardComponent data={data} />
               </div>

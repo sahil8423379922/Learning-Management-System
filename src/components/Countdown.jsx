@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const CountdownTimer = () => {
   // Set the target date and time for the event
-  const targetDate = new Date("2024-1-19 T23:59:59");
+  const targetDate = new Date("2024-4-19 T23:59:59");
 
   // Calculate the initial time remaining
   const calculateTimeRemaining = () => {

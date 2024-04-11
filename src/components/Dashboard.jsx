@@ -1,29 +1,55 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import UpcomingEvents from "./UpcomingEvents";
 import DashboardContent from "./DashboardContent";
-import Navbar from "./Navbar";
-import FlowofEvent from "./FlowofEvent";
-import Course from "./flow/Course";
+import Sidebar from "./Sidebar/Sidebar";
+import Curicullum from "./Curicullum/Curicullum";
+
 export default function Dashboard() {
-  function eventlog(val) {
-    console.log("Function Called on Click" + val);
-  }
+  const [selectedComponent, setSelectedComponent] = useState(null);
+
+  const handleSidebarItemClick = (componentName) => {
+    setSelectedComponent(componentName);
+  };
+
   return (
     <div>
-      <Navbar />
+      {/* <div style={{ position: "fixed", top: 0, width: "100%", zIndex: 2 }}>
+        <Navbar />
+      </div> */}
       <div className="row">
-        <div className="col-3">
-          <FlowofEvent eventlog={eventlog} />
-        </div>
-        <div className="col-9">
-          {true ? (
+        <div className="col-2">
+          <div style={{ height: "20px" }}>text</div>
+          <div
+            className="col-2"
+            style={{
+              backgroundColor: "blue",
+              position: "fixed",
+              bottom: 0,
+              top: 0,
+              overflowY: "auto",
+              zIndex: 1,
+            }}
+          >
             <div>
+              <Sidebar onItemClick={handleSidebarItemClick} />
+            </div>
+          </div>
+        </div>
+        <div className="col-10">
+          {selectedComponent === null && (
+            <>
               <UpcomingEvents />
               <DashboardContent />
-            </div>
-          ) : (
-            <Course />
+            </>
           )}
+          {selectedComponent === "Home" && (
+            <>
+              <UpcomingEvents />
+              <DashboardContent />
+            </>
+          )}
+          {selectedComponent === "Course" && <Curicullum />}
+          {/* Add other conditions for selected components if needed */}
         </div>
       </div>
     </div>

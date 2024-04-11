@@ -1,19 +1,41 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import UpcommingClasses from "./UpcommingClasses";
 import RecordedClasses from "./RecordedClasses";
 import Syllabus from "./Syllabus/Syllabus";
+import axios from "axios";
 
 const Curicullum = () => {
+  var state = true;
   const [activeTab, setActiveTab] = useState("view1");
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
 
+  useEffect(() => {
+    Backend();
+  }, []);
+
+  function Backend() {
+    axios
+      .get("http://localhost:4000/api/data", { crossdomain: true })
+      .then((response) => {
+        data = response.data;
+      })
+      .then(() => {
+        for (let x in data) {
+          console.log("Data Received from loop =", data[x]["title"]);
+          state ? title.push(data[x]["title"]) : "";
+        }
+        setData(title);
+        state = false;
+      });
+  }
+
   return (
     <>
       <div className="container">
-        <h3 className=" fw-bold">Software Engineering</h3>
+        <h3 className=" fw-bold pt-5">Software Engineering</h3>
         <p>You have access to 6 Modules in Software Engineering Course</p>
       </div>
 

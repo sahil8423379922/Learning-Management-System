@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./CSS Modules/UpcommingClasses.module.css";
+import { Link } from "react-router-dom";
 
 export default function Offlineclass({ offlineclass, sno }) {
   return (
@@ -12,9 +13,9 @@ export default function Offlineclass({ offlineclass, sno }) {
           <td>{offlineclass.status}</td>
           <td>{offlineclass.prblm}</td>
           <td>
-            <a href={offlineclass.url} type="button" class="btn btn-primary">
+            <Link to={offlineclass.url} type="button" class="btn btn-primary">
               Open
-            </a>
+            </Link>
           </td>
         </tr>
       </tbody>

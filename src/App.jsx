@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Register from "./components/Register";
@@ -10,11 +9,13 @@ import RecordedContent from "./components/Curicullum/Study Material/RecordedCont
 import TopicWise from "./components/Curicullum/Topic Wise/TopicWise";
 
 export default function App() {
-  const [data, setData] = useState([]);
-
   return (
     <BrowserRouter>
       <Routes>
+        {/* <Route path="/" element={<Login />}>
+          <Route index element={<Login />} />
+        </Route> */}
+
         <Route path="/" element={<Dashboard />}>
           <Route index element={<Dashboard />} />
         </Route>
@@ -22,7 +23,7 @@ export default function App() {
         <Route path="Video/:title" element={<VideoPlayer />} />
         <Route path="Curicullum" element={<Curicullum />} />
         <Route path="Recorded" element={<RecordedContent />} />
-        <Route path="TopicWise/:title" element={<TopicWise />} />
+        <Route path="TopicWise/:data" element={<TopicWise />} />
       </Routes>
     </BrowserRouter>
   );

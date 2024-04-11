@@ -1,22 +1,19 @@
 import React from "react";
-import logo from "./Images/discord.png";
+import logo from "./Images/kochiva.svg";
 
 export default function Navbar() {
   return (
     <>
       <div className="">
-        <nav class="navbar bg-body-tertiary">
+        <nav class="navbar bg-white">
           <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-              <img
-                src={logo}
-                alt="Logo"
-                width="40"
-                height="38"
-                className="d-inline-block align-text-top pe-1"
-              />
-              Join Discord
-            </a>
+            <img
+              height={50}
+              width={120}
+              src={logo}
+              alt="Logo"
+              className="d-inline-block align-text-top pe-1 pb-2"
+            />
           </div>
         </nav>
       </div>
