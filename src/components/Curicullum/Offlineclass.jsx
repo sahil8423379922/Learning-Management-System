@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./CSS Modules/UpcommingClasses.module.css";
 import { Link } from "react-router-dom";
 
-export default function Offlineclass({ offlineclass, sno }) {
+export default function Offlineclass({ offlineclass, sno, switchpages }) {
   return (
     <>
       <div
@@ -24,8 +24,8 @@ export default function Offlineclass({ offlineclass, sno }) {
         <div className="col-2">{offlineclass.prblm}</div>
         <div className="col-2" style={{}}>
           <Link
-            to={offlineclass.url}
             type="button"
+            onClick={switchpages}
             className="btn btn-outline-primary rounded-0 py-1 px-5"
           >
             View

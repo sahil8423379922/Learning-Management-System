@@ -1,7 +1,7 @@
 import React from "react";
 import Offlineclass from "./Offlineclass";
 
-export default function RecordedClasses({ recordedClass }) {
+export default function RecordedClasses({ recordedClass, switchpages }) {
   return (
     <>
       <div className="table p-0 m-0">
@@ -15,7 +15,13 @@ export default function RecordedClasses({ recordedClass }) {
         </div>
 
         {recordedClass.map((value, index) => {
-          return <Offlineclass offlineclass={value} sno={index} />;
+          return (
+            <Offlineclass
+              offlineclass={value}
+              sno={index}
+              switchpages={switchpages}
+            />
+          );
         })}
       </div>
     </>
