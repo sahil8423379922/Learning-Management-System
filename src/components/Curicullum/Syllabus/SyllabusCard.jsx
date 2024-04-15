@@ -2,30 +2,25 @@ import { useNavigate } from "react-router-dom";
 import React from "react";
 import styles from "./Curicullum.module.css";
 
-export default function SyllabusCard({ syllabus }) {
+export default function SyllabusCard({ syllabus, settopic, offline }) {
   const navigate = useNavigate();
 
   console.log("Data Received = " + syllabus.topics);
 
-  const sendData = () => {
-    const dataToSend = syllabus;
-    const serializedData = encodeURIComponent(JSON.stringify(dataToSend));
-    navigate(`/TopicWise/${serializedData}`);
-  };
-
   return (
     <>
-      <div className={` card mx-2  ${styles.cardtemplate}`}>
+      <div className={` card mx-1 ${styles.cardtemplate}`}>
         <div>
           <p className={styles.cardfont}>{syllabus.name}</p>
           <p className={styles.cardpara}>{syllabus.desc}</p>
 
           <button
-            onClick={sendData}
+            onClick={() => settopic(syllabus.name)}
             type="button"
-            class="btn btn-outline-success position-absolute bottom-0 start-50 translate-middle-x mb-2 px-5"
+            class="btn btn-outline-success py-1 mt-2"
+            style={{ borderRadius: 0 }}
           >
-            open
+            View Module
           </button>
         </div>
       </div>

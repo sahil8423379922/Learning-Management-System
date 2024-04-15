@@ -17,7 +17,7 @@ export default function Course(props) {
         aria-controls="collapseExample"
         onClick={() => setIsCollapsed(!isCollapsed)}
       >
-        <i class="fa fa-book pr-2" aria-hidden="true"></i> {/* Leading Icon */}
+        <i class="fa fa-book pr-2" aria-hidden="true"></i>
         Course
         <i
           class={`fa ${
@@ -25,8 +25,7 @@ export default function Course(props) {
           } position-absolute end-0`}
           style={{ top: "50%", transform: "translateY(-50%)" }}
           aria-hidden="true"
-        ></i>{" "}
-        {/* Trailing Icon */}
+        ></i>
       </a>
 
       <div className={`collapse ${isCollapsed ? "show" : ""}`} id="intro">
@@ -43,6 +42,7 @@ export default function Course(props) {
                 <i class="fa fa-file-text-o pr-3" aria-hidden="true"></i>
                 Curicullum
               </a>
+
               <div
                 class="list-group-item  text-white"
                 style={{ backgroundColor: "transparent", border: "none" }}

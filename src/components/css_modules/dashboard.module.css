@@ -1,0 +1,20 @@
+.upcoming{
+  height: 200px;
+  width: 200px;
+}
+
+.style{
+  background-color: blue;
+}
+
+.arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 0 6px 6px;
+  border-color: transparent transparent transparent #fff;
+}

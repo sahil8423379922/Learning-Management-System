@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import SyllabusCard from "./SyllabusCard";
 
-export default function Syllabus() {
+export default function Syllabus({ settopic, offline }) {
   var titledata = [];
   //var title = [];
   var data;
@@ -31,32 +31,32 @@ export default function Syllabus() {
 
   var syllabus = [
     {
-      name: "Advanced DSA",
-      desc: "All topics of Data Structure and Algorithm",
+      name: "French A1",
+      desc: "All topics of French A1",
       url: "",
       topics: title,
     },
     {
-      name: "Beginner Course,",
-      desc: "Basics topics of programming and other important concepts",
+      name: "French A2,",
+      desc: "All topics of French A2",
       url: "",
       topics: titledata,
     },
     {
-      name: "System Design",
-      desc: "System Designing concepts to build scalable systems and Applications",
+      name: "French B1",
+      desc: "All topics of French B1",
       url: "",
       topics: titledata,
     },
     {
-      name: "Project",
-      desc: "Industry Level Real time Projects based on MERN Technology",
+      name: "French B2",
+      desc: "All topics of French B2",
       url: "",
       topics: titledata,
     },
     {
-      name: "Advanced DSA",
-      desc: "All topics of Data Structure and Algorithm",
+      name: "French C1",
+      desc: "All topics of French C1",
       url: "",
       topics: titledata,
     },
@@ -65,7 +65,13 @@ export default function Syllabus() {
     <div className="container mb-5">
       <div className="row">
         {syllabus.map((value) => {
-          return <SyllabusCard syllabus={value} />;
+          return (
+            <SyllabusCard
+              syllabus={value}
+              settopic={settopic}
+              offline={offline}
+            />
+          );
         })}
       </div>
     </div>

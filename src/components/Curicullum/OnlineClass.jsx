@@ -1,23 +1,30 @@
 import React from "react";
-import styles from "./CSS Modules/UpcommingClasses.module.css";
 
 export default function OnlineClass({ onlineclass, sno }) {
   return (
     <>
-      <tbody>
-        <tr className={styles.contentsize}>
-          <td>{sno + 1}</td>
-          <td>{onlineclass.topic}</td>
-          <td>{onlineclass.date}</td>
-          <td>{onlineclass.status}</td>
-          <td>{onlineclass.prblm}</td>
-          <td>
-            <a href={onlineclass.url} type="button" class="btn btn-secondary">
-              Join Class
-            </a>
-          </td>
-        </tr>
-      </tbody>
+      <div
+        className="row py-2"
+        style={{
+          textAlign: "center",
+          backgroundColor: sno % 2 === 0 ? "white" : "#f5f4f2",
+        }}
+      >
+        <div className="col-1">{sno + 1}</div>
+        <div className="col-3">{onlineclass.topic}</div>
+        <div className="col-2">{onlineclass.date}</div>
+        <div className="col-2">{onlineclass.status}</div>
+        <div className="col-2">{onlineclass.prblm}</div>
+        <div className="col-2">
+          <a
+            href={onlineclass.url}
+            type="button"
+            className="btn btn-secondary py-1"
+          >
+            Join Class
+          </a>
+        </div>
+      </div>
     </>
   );
 }

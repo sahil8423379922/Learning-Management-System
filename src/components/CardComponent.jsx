@@ -1,6 +1,4 @@
 import React from "react";
-import styles from "./css_modules/CardComponent.module.css";
-
 const CardComponent = ({ data }) => (
   <div className="row">
     {data.map((item, index) => (
@@ -9,8 +7,10 @@ const CardComponent = ({ data }) => (
           <div className="card-body">
             <div className="card-text">
               <div className="fs-4">{index}</div>
-              <div className="fs-5 fw-bold">{item.title}</div>
-              <div className="pt-5">{item.description}</div>
+              <div className="fw-bold" style={{ fontSize: "15px" }}>
+                {item.title}
+              </div>
+              <div className="pt-3">{item.description}</div>
               <div class="d-grid gap-2 mt-4">
                 <a
                   href={`/video/${item.title}`}

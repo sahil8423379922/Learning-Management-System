@@ -1,47 +1,23 @@
 import React from "react";
 import Offlineclass from "./Offlineclass";
 
-export default function RecordedClasses() {
-  var recordedClass = [
-    {
-      topic: "Introduction to Data Structure",
-      date: "10-1-2024",
-      status: "Completed",
-      prblm: "Solved",
-      url: "/Recorded",
-    },
-    {
-      topic: "Introduction to Arrays",
-      date: "11-1-2024",
-      status: "Completed",
-      prblm: "Solved",
-      url: "/Recorded",
-    },
-    {
-      topic: "Lab Implementation of Array",
-      date: "122-1-2024",
-      status: "Completed",
-      prblm: "Solved",
-      url: "/Recorded",
-    },
-  ];
+export default function RecordedClasses({ recordedClass }) {
   return (
     <>
-      <table className="table mx-0 my-0">
-        <thead>
-          <tr className="text-center">
-            <th>S.NO</th>
-            <th>Class Name</th>
-            <th>Date</th>
-            <th>Status</th>
-            <th>Problem Solved</th>
-            <th>Recording & Assignments</th>
-          </tr>
-        </thead>
+      <div className="table p-0 m-0">
+        <div className="row text-center bg-dark text-white py-2">
+          <div className="col-1">S.NO</div>
+          <div className="col-3">Class Name</div>
+          <div className="col-2">Date</div>
+          <div className="col-2">Status</div>
+          <div className="col-2">Task</div>
+          <div className="col-2">Recording & Assignments</div>
+        </div>
+
         {recordedClass.map((value, index) => {
           return <Offlineclass offlineclass={value} sno={index} />;
         })}
-      </table>
+      </div>
     </>
   );
 }
