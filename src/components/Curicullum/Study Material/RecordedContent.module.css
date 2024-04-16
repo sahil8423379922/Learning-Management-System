@@ -1,0 +1,16 @@
+.bd{
+  margin-right: 10px;
+  padding-right: 5%;
+  padding-left: 5%; 
+  border: 2px solid #00679e;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  }
+
+.notesblock{
+  padding: 10px;
+  margin-top: 3%;
+  height:auto;
+  border: 1px solid rgb(179, 178, 178);
+
+}

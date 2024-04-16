@@ -46,13 +46,20 @@ export default function Course(props) {
               <div
                 class="list-group-item  text-white"
                 style={{ backgroundColor: "transparent", border: "none" }}
+                onClick={() => {
+                  props.handleItemClick("Mentor");
+                }}
               >
                 <i class="fa fa-user-o pr-3" aria-hidden="true"></i>
                 Mentor
               </div>
+
               <div
                 class="list-group-item  text-white"
                 style={{ backgroundColor: "transparent", border: "none" }}
+                onClick={() => {
+                  props.handleItemClick("Schedule");
+                }}
               >
                 <i class="fa fa-calendar-o pr-3" aria-hidden="true"></i>
                 Schedule
@@ -60,6 +67,9 @@ export default function Course(props) {
               <div
                 class="list-group-item  text-white"
                 style={{ backgroundColor: "transparent", border: "none" }}
+                onClick={() => {
+                  props.handleItemClick("Assesment");
+                }}
               >
                 <i class="fa fa-tasks pr-3" aria-hidden="true"></i>
                 Assesment

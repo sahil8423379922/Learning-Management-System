@@ -1,5 +1,6 @@
 import React from "react";
-// import DocumentViewer from "react-documents";
+import ReactPlayer from "react-player/lazy";
+import styles from "./RecordedContent.module.css";
 
 export default function RecordedContent({
   currenttopic,
@@ -31,6 +32,15 @@ export default function RecordedContent({
                 </div>
               </div>
             </div>
+
+            <ReactPlayer url="https://www.youtube.com/watch?v=ysz5S6PUM-U" />
+            <div className={styles.notesblock}>
+              <div className="pb-2">Notes</div>
+              <div>
+                <a className={styles.bd}>dasds</a>
+                <a className={styles.bd}>dasds</a>
+              </div>
+            </div>
           </div>
 
           <div className="col-3 card" style={{ borderRadius: 0 }}>
@@ -41,13 +51,12 @@ export default function RecordedContent({
             </div>
             <div
               style={{
-                height: "85%", // Set height to 90% of parent's height
-                maxHeight: "90vh", // Set max-height to 90% of viewport height (optional)
-                overflowY: "auto", // Enable vertical scrollbar when content overflows
-                scrollbarWidth: "none", // Hide scrollbar for Firefox
-                msOverflowStyle: "none", // Hide scrollbar for IE/Edge
+                height: "85%",
+                maxHeight: "90vh",
+                overflowY: "auto",
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
                 "::-webkit-scrollbar": {
-                  // Hide scrollbar for Webkit browsers (Chrome, Safari, etc.)
                   display: "none",
                 },
               }}

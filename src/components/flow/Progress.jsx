@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Progress() {
+export default function Progress(props) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   return (
     <>
@@ -34,6 +34,9 @@ export default function Progress() {
               <div
                 class="list-group-item  text-white"
                 style={{ backgroundColor: "transparent", border: "none" }}
+                onClick={() => {
+                  props.handleItemClick("Placement");
+                }}
               >
                 <i class="fa fa-suitcase pr-3" aria-hidden="true"></i>
                 Placemnet
