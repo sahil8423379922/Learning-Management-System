@@ -1,6 +1,7 @@
 .bd{
   margin-right: 10px;
   padding-right: 5%;
+  text-decoration: none;
   padding-left: 5%; 
   border: 2px solid #00679e;
   padding-top: 4px;
@@ -10,6 +11,7 @@
 .notesblock{
   padding: 10px;
   margin-top: 3%;
+  padding-bottom: 20px;
   height:auto;
   border: 1px solid rgb(179, 178, 178);
 

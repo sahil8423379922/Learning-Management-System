@@ -1,22 +1,50 @@
 import React from "react";
 import ReactPlayer from "react-player/lazy";
 import styles from "./RecordedContent.module.css";
+import { Link } from "react-router-dom";
+import AssignmentTable from "./AssignmentTable";
+import Pdfrender from "./Pdfrender";
 
 export default function RecordedContent({
   currenttopic,
   handelCuricullum,
   offlineclass,
 }) {
+  const assignmenttable = [
+    {
+      topic: "Welcome to Course",
+    },
+    {
+      topic: "French Language Test 1",
+    },
+    {
+      topic: "French Language Test 2",
+    },
+    {
+      topic: "French Language Test 2",
+    },
+  ];
   return (
     <div>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-9">
+          <div
+            className="col-9"
+            style={{
+              maxHeight: "calc(100vh - 64px)",
+              overflowY: "auto",
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+              "::-webkit-scrollbar": {
+                display: "none",
+              },
+            }}
+          >
             <div className="row">
               <div className="col-6">
                 <h3 className="fw-bold ">{currenttopic}</h3>
                 <p style={{ fontSize: "18px" }}>
-                  You have access to 35 Lessions in French A1 module
+                  You have access to 35 Lessons in French A1 module
                 </p>
               </div>
               <div className="col-6">
@@ -32,13 +60,23 @@ export default function RecordedContent({
                 </div>
               </div>
             </div>
-
             <ReactPlayer url="https://www.youtube.com/watch?v=ysz5S6PUM-U" />
             <div className={styles.notesblock}>
               <div className="pb-2">Notes</div>
               <div>
-                <a className={styles.bd}>dasds</a>
-                <a className={styles.bd}>dasds</a>
+                <Link to="/notes" className={`${styles.bd}`}>
+                  Class Notes
+                </Link>
+                <Link to="/summary" className={`${styles.bd}`}>
+                  Class Sumary
+                </Link>
+              </div>
+            </div>
+
+            <div className={styles.notesblock}>
+              <div className="pb-2 ps-2">Assignments</div>
+              <div style={{ paddingLeft: "18px", paddingRight: "18px" }}>
+                <AssignmentTable assignmenttable={assignmenttable} />
               </div>
             </div>
           </div>

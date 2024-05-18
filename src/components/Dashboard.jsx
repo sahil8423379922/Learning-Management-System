@@ -7,8 +7,10 @@ import Mentor from "./Curicullum/Mentor/Mentor";
 import Schedule from "./Curicullum/Schedule/Schedule";
 import Assesment from "./Curicullum/Assesment/Assesment";
 import Placement from "./Curicullum/Placement/Placement";
+import { useLocation } from "react-router-dom";
+export default function Dashboard({ onLogout }) {
+  const location = useLocation();
 
-export default function Dashboard() {
   const [selectedComponent, setSelectedComponent] = useState(null);
   const [ratio, setratio] = useState("8");
   const [sidebar, setsidebar] = useState(true);
@@ -21,6 +23,21 @@ export default function Dashboard() {
     } else {
       setratio("8");
       setsidebar(true);
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await fetch("http://localhost:4000/lms/logout", {
+        method: "POST",
+      }).then((value) =>
+        value.json().then((data) => {
+          console.log(data);
+          onLogout();
+        })
+      );
+    } catch (error) {
+      console.error("Error logging out:", error);
     }
   };
 
@@ -67,7 +84,7 @@ export default function Dashboard() {
             <Sidebar onItemClick={handleSidebarItemClick} />
           </div>
           <div className="row pt-3 px-4" style={{ maxHeight: "10%" }}>
-            <button type="button" class="btn btn-light">
+            <button type="button" class="btn btn-light" onClick={handleLogout}>
               Logout
             </button>
           </div>

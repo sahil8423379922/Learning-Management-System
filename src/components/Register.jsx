@@ -1,34 +1,75 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import logo from "./loginbanner.jpg";
 import styles from "./Register.module.css";
-import Login from "./login";
-import { auth } from "../firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import ReactDOM from "react-dom";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+// import Dashboard from "./Dashboard";
+// import login from "../../../LMSBackend/auth/login";
 
-export default function Register() {
+export default function Register({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // const [loginstate, setloginstate] = useState(true);
+  // const history = useNavigate();
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-
-    await createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log(user);
-        ReactDOM.render(<Login />, document.getElementById("root"));
-        // ...
+  const sendDataToNode = async (email, password) => {
+    const response = fetch("http://localhost:4000/api/login", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }), // Send email and password instead of data
+    }).then((response) =>
+      response.json().then((data) => {
+        onLogin();
+        console.log(data);
       })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-        // ..
-      });
+    );
+
+    // const data = await response.json();
+    // if (response.ok) {
+    //   onLogin();
+    // } else {
+    //   console.error(data.message);
+    // }
+
+    // .then((response) => response.json())
+    // .then((data) => {
+    //   console.log(data);
+
+    //   if (data.message == "true") {
+    //     setloginstate(true);
+    //     history("/dashboard", { loginstate });
+    //   } else {
+    //     setloginstate(false);
+    //     history("/register");
+    //   }
+
+    //   // setloginstate(data.message);
+    // });
+
+    // if (loginstate == "true") {
+    //   <Dashboard />;
+    // } else {
+    // }
+    // Handle response as needed
+
+    //   fetch("http://localhost:5000/api/login", {
+    //     method: "post",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({ email, password }),
+    //   })
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //       console.log(data);
+    //     });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Prevent default form submission behavior
+    sendDataToNode(email, password); // Call sendDataToNode function when the form is submitted
   };
 
   return (
@@ -37,10 +78,10 @@ export default function Register() {
         <div className={styles.logb}>
           <div className="row bg-white py-4 px-5 shadow-sm p-3 rounded ">
             <div className="col pt-5">
-              <img src={logo} className={styles.imgholder} />
+              <img src={logo} className={styles.imgholder} alt="Logo" />
             </div>
             <div className="col">
-              <form className="py-5">
+              <form className="py-5" onSubmit={handleSubmit}>
                 <div>
                   <p className={styles.logtext}>Register to Open Account</p>
                 </div>
@@ -77,11 +118,7 @@ export default function Register() {
                 </div>
 
                 <div className="d-grid gap-2">
-                  <button
-                    className="btn btn-primary"
-                    type="submit"
-                    onClick={onSubmit}
-                  >
+                  <button className="btn btn-primary" type="submit">
                     Register
                   </button>
                 </div>
